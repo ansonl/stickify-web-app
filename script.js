@@ -107,7 +107,7 @@ function submitInput(event) {
 
     userLoggedIn = true;
     
-    setTimeout(submitInput, 5000);
+    setTimeout(submitInput, 9000);
 
   });
 	request.fail(function( jqXHR, textStatus ) {
