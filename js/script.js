@@ -2,6 +2,9 @@ var lastValues = {};
 
 var userLoggedIn = false;
 
+var updateTimeout;
+var countdownTimeout;
+
 function showContentProgressBar() {
     $('#contentProgressBar').removeClass('progress-bar-danger');
 	$('#contentLoadingDiv').fadeTo(500, 1);
@@ -114,13 +117,13 @@ function updateNotes() {
 			userLoggedIn = true;
 		} else {
 			hideContentProgressBar();
-			$('#errorDiv').slideUp(500);
+			$('#errorDiv').slideUp(200);
 			$('#errorDiv').html('');
 			$('#results').html(outputList);
 			
 		}
-
-		setTimeout(updateNotes, 5000);
+        clearTimeout(updateTimeout);
+		updateTimeout = setTimeout(updateNotes, 9000);
 
 	});
 	request.fail(function(jqXHR, textStatus) {
@@ -128,15 +131,31 @@ function updateNotes() {
 	        enableInputs();
 	    }
 		else {
+		    var retryPeriod = 10;
 		    $('#contentProgressBar').addClass('progress-bar-danger');
-		    $('#contentProgressBar').html('Retrying');
+		    $('#contentProgressBar').html('Retrying in <span id="retryCountdown">60</span>s');
+		    clearTimeout(countdownTimeout);
+			countdown($('#retryCountdown'), retryPeriod, 1000);
+		    
+		    
 		    $('#errorDiv').html('<div><p class="errorTitle">Stickify backend unreachable</p><p>We\'ll be right back.</p>Browser provided message<blockquote>' + textStatus + '</blockquote></div><button type="button" class="btn btn-primary" id="retryButton" onclick="updateNotes();">Retry Now</button>');
 		    $('#errorDiv').slideDown(500);
 		}
-	    
-		setTimeout(updateNotes, 5000);
+		
+	    clearTimeout(updateTimeout);
+		updateTimeout = setTimeout(function () {
+		    $('#contentProgressBar').addClass('progress-bar-warning');
+		    $('#contentProgressBar').html('Retrying');
+		    updateNotes();
+		}, retryPeriod * 1000);
 		
 	});
+}
+
+function countdown(element, number, period) {
+	element.html(number);
+	if (number > 0)
+		countdownTimeout = setTimeout(function(){countdown(element, number - 1, period);}, period);
 }
 
 function submitInput(event) {
