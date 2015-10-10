@@ -26,14 +26,13 @@ function hideFormProgressBar() {
 
 function disableInputs() {
 	$('#submit').focus();
-	$('#formDiv').fadeTo(500, 0.8);
+	$('#formDiv').fadeTo(500, 0.9);
 	$('input').prop('disabled', true);
 }
 
 function enableInputs() {
-	$('#formDiv').fadeTo(500, 1);
+	$('#formDiv').fadeTo(200, 1);
 	$('input').prop('disabled', false);
-	$('.loadingDiv').html('')
 }
 
 function updateNotes() {
@@ -52,11 +51,10 @@ function updateNotes() {
 	})
 	request.done(function(msg) {
 		if (msg.substring(0, 1) == "1") {
-
-			var errorText = '<div class="errorSpan centerHorizSpan">Server provided error: <blockquote>' + msg.substring(2, msg.length) + '</blockquote></div>'
-
-			$('#results').html(errorText);
-			enableInputs();
+            $('#errorDiv').html(msg.substring(2, msg.length));
+		    $('#errorDiv').slideDown(500);
+		    hideFormProgressBar();
+		    enableInputs();
 			return;
 		}
 
@@ -65,12 +63,20 @@ function updateNotes() {
 		try {
 			parsed = JSON.parse(msg)
 		} catch (e) {
-			var errorText = '<div class="errorSpan centerHorizSpan">Server provided error: <blockquote>' + msg.substring(2, msg.length) + '</blockquote></div>'
-
-			outputList += errorText;
-
-			$('#results').html(errorText);
+            $('#errorDiv').html(msg.substring(2, msg.length));
+		    $('#errorDiv').slideDown(500);
+		    hideFormProgressBar();
+		    enableInputs();
+		    return;
 		}
+		
+        if (parsed === null) {
+            $('#errorDiv').html('No stickies found.');
+		    $('#errorDiv').slideDown(500);
+		    hideFormProgressBar();
+		    enableInputs();
+		    return;
+        }
 
 		for (var i = 0; i < parsed.length; i++) {
 			//golang iotuil.ReadFile issue with % characters
@@ -118,7 +124,6 @@ function updateNotes() {
 		} else {
 			hideContentProgressBar();
 			$('#errorDiv').slideUp(200);
-			$('#errorDiv').html('');
 			$('#results').html(outputList);
 			
 		}
@@ -159,6 +164,8 @@ function countdown(element, number, period) {
 }
 
 function submitInput(event) {
+    $('#errorDiv').slideUp(200);
+    
 	if (!userLoggedIn)
 		disableInputs();
 	showFormProgressBar();
