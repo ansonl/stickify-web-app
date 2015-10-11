@@ -21,7 +21,7 @@ function showFormProgressBar() {
 }
 
 function hideFormProgressBar() {
-	$('#formLoadingDiv').fadeTo(500, 0);
+    $('#formLoadingDiv').css('display', 'none');
 }
 
 function disableInputs() {
@@ -119,6 +119,7 @@ function updateNotes() {
 		if (!userLoggedIn) {
 			$('#formDiv').fadeOut(500, function() {
 				$('#results').html(outputList);
+				$('#smallIconDiv').fadeIn(1000);
 			});
 			userLoggedIn = true;
 		} else {
@@ -176,7 +177,7 @@ function submitInput(event) {
 }
 var something = submitInput
 $(document).ready(function() {
-    $('.loadingDiv').css('opacity', 0);
+    $('#formDiv').fadeIn(200);
 
 	$('#results').html('');
 

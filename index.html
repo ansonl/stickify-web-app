@@ -1,55 +1,75 @@
 <html>
+
 <head>
 
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
-<title>Stickify</title>
+	<title>Stickify</title>
 
-<!-- local resources -->
-<script src="js/jquery-2.1.4.min.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<script src="js/bootstrap.min.js"></script>
+	<!-- local resources -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<script src="js/bootstrap.min.js"></script>
 
-<!-- CDN resources -->
-<!-- 
+	<!-- CDN resources -->
+	<!-- 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 -->
 
-<script language="javascript" type="text/javascript" src="js/script.js"></script>
-<link rel="stylesheet" type="text/css" href="css/noteStyle.css">
+	<link href='https://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+
+	<script language="javascript" type="text/javascript" src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/noteStyle.css">
 
 </head>
+
 <body>
-<div id="imageBufferDiv"><img id="imageBuffer" src=""></div>
+	<div id="imageBufferDiv"><img id="imageBuffer" src="">
+	</div>
 
-<div id="contentDiv">
-    <div class="container-fluid">
-    <div class="col-md-12 loadingDiv" id="contentLoadingDiv"><div class="progress"><div id="contentProgressBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div></div>
-    </div>
-    <div class="container-fluid">
-        <div id="errorDiv" class="col-md-12 alert alert-danger" role="alert"></div>
-    </div>
-    <div id="results">
-    	<span>Javascript must be enabled to use Stickify.</span>
-    </div>
-</div>
-<div class="container-fluid" id="formDiv">
-    <div class="col-md-3"></div>
-	<form class="col-md-6" id="userInfoForm">
-		<input type="text" placeholder="Nickname" id="nickname" autocorrect="off" autocapitalize="off"/>
-		<input type="password" placeholder="PIN" id="pin" />
-		<input type="submit" value="View" id="submit"/>
-		<div class="loadingDiv" id="formLoadingDiv"><div class="progress"><div id="formProgressBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div></div>
-	</form>
-	<div class="col-md-3"></div>
-</div>
+	<div class="container-fluid" id="contentDiv">
+		<div id="smallIconDiv"></div>
+		<div class="col-md-12 loadingDiv" id="contentLoadingDiv">
+			<div class="progress">
+				<div id="contentProgressBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div id="errorDiv" class="col-md-12 alert alert-danger" role="alert"></div>
+	</div>
+	<div class="container-fluid" id="results">
+		<span>Javascript must be enabled to use Stickify.</span>
+	</div>
+	<div class="container-fluid" id="formDiv">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div id="formBigIconDiv">
 
+			</div>
+			<div id="formBigTitleDiv">Stickify</div>
+
+			<form id="userInfoForm">
+				<input type="text" placeholder="Nickname" id="nickname" autocorrect="off" autocapitalize="off" />
+				<input type="password" placeholder="PIN" id="pin" />
+				<input class="btn btn-default" type="submit" value="Get Stickies" id="submit" />
+				<div class="loadingDiv" id="formLoadingDiv">
+					<div class="progress">
+						<div id="formProgressBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="col-md-3"></div>
+	</div>
 </body>
+
 </html>

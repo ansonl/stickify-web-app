@@ -1,6 +1,41 @@
 body {
     background-color: #323232;
 }
+
+#smallIconDiv {
+    background-image: url('../images/stickify-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:0;
+    left:0;
+    margin-left: 10px;
+    display:none;
+}
+
+#formBigIconDiv {
+    background-image: url('../images/stickify-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 0;
+    padding-top: 90%; 
+}
+
+#formBigTitleDiv {
+    text-align: center;
+    font-family: 'Cantarell', sans-serif;
+    font-size:200%;
+    color: #FFFFFF;
+    top: -20px;
+    position: relative;
+    text-shadow: 0px 0px 20px #000000;
+}
+
 #imageBufferDiv {
     z-index: -1;
     /* image locations, loremflickr has SameOrigin problem
@@ -18,6 +53,7 @@ body {
 
 input {
 	width:100%;
+	font-family: 'Cantarell', sans-serif;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -48,11 +84,11 @@ input {
 
 .loadingDiv {
     width: 100%;
-    /*display: none;*/
+    opacity: 0;
 }
 
 #formLoadingDiv {
-
+    display:none;
 }
 
 #contentLoadingDiv {
@@ -64,13 +100,22 @@ input {
 }
 
 #noteDiv {
+    font-family: 'Cantarell', sans-serif;
+    background: linear-gradient(#f8f7b6 5%, #fdfdc5 10%, #f8f7b6);
 	background-color: #fdfdc5;
 	padding:30px 5px 30px 5px;
 	margin: 5px;
+	box-shadow:0px 5px 20px 0px #000000;
 }
 #formDiv {
 	position: absolute;
+	display: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
+}
+
+#userInfoForm {
+    box-shadow:0px 0px 20px 0px #000000;
 }
