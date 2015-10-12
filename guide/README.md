@@ -4,7 +4,7 @@ Getting started with Stickify
 
 View your Microsoft Windows [Sticky Notes](http://windows.microsoft.com/en-us/windows7/using-sticky-notes) anywhere.
 
- -  Get Stickify Pusher
+ 1.  Get Stickify Pusher
 ===================
  - Download the pre-built Stickify binary [here](https://raw.githubusercontent.com/ansonl/stickify-pusher/master/dist/stickify.exe). 
  - Move `stickify.exe` to `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`. Stickify will now open on login. 
