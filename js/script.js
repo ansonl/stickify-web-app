@@ -4,9 +4,12 @@ var userLoggedIn = false;
 
 var updateTimeout;
 var countdownTimeout;
+//""http://uakk62822589.ansonl.koding.io:8080/getUser"
+//"https://stickify.herokuapp.com/getUser"
+var server = "https://stickify.herokuapp.com/getUser";
 
 function showContentProgressBar() {
-    $('#contentProgressBar').removeClass('progress-bar-danger');
+    $('#contentProgressBar').removeClass('progress-bar-danger progress-bar-warning');
 	$('#contentLoadingDiv').fadeTo(500, 1);
 	$('#contentProgressBar').html('Updating Stickies');
 }
@@ -16,6 +19,7 @@ function hideContentProgressBar() {
 }
 
 function showFormProgressBar() {
+    $('#formProgessBar').removeClass('progress-bar-danger progress-bar-warning');
 	$('#formLoadingDiv').fadeTo(500, 1);
 	$('#formProgessBar').html('Getting Stickies');
 }
@@ -43,7 +47,7 @@ function updateNotes() {
     
 	var request = $.ajax({
 		method: "POST",
-		url: "https://stickify.herokuapp.com/getUser",
+		url: server,
 		data: {
 			user: $('#nickname').val(),
 			passcode: $('#pin').val()
@@ -134,6 +138,9 @@ function updateNotes() {
 	});
 	request.fail(function(jqXHR, textStatus) {
 	    if (!userLoggedIn) {
+	        $('#errorDiv').html('<div><p class="errorTitle">Stickify backend unreachable</p><p>Please connect to the internet.</p></div>');
+		    $('#errorDiv').slideDown(500);
+	        hideFormProgressBar();
 	        enableInputs();
 	    }
 		else {
@@ -146,14 +153,14 @@ function updateNotes() {
 		    
 		    $('#errorDiv').html('<div><p class="errorTitle">Stickify backend unreachable</p><p>We\'ll be right back.</p>Browser provided message<blockquote>' + textStatus + '</blockquote></div><button type="button" class="btn btn-primary" id="retryButton" onclick="updateNotes();">Retry Now</button>');
 		    $('#errorDiv').slideDown(500);
+		    
+		    clearTimeout(updateTimeout);
+		    updateTimeout = setTimeout(function () {
+		        $('#contentProgressBar').addClass('progress-bar-warning');
+		        $('#contentProgressBar').html('Retrying');
+		        updateNotes();
+		    }, retryPeriod * 1000);
 		}
-		
-	    clearTimeout(updateTimeout);
-		updateTimeout = setTimeout(function () {
-		    $('#contentProgressBar').addClass('progress-bar-warning');
-		    $('#contentProgressBar').html('Retrying');
-		    updateNotes();
-		}, retryPeriod * 1000);
 		
 	});
 }
