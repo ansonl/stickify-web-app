@@ -31,5 +31,7 @@ View your Microsoft Windows [Sticky Notes](http://windows.microsoft.com/en-us/wi
 Notes
 -------------
 - `stickify.exe`connects to the *stickify.herokuapp.com* server. 
-		- *stickify.herokuapp.com* is set to wipe nicknames and associated sticky notes if Sticky Pusher has not contacted the server in **24 hours**.
-###### Code repositories on Github:  [Stickify Pusher](https://github.com/ansonl/stickify-pusher), [Stickify Server](https://github.com/ansonl/stickify-server), [Stickify web app](https://github.com/ansonl/stickify-web-app).
+	- *stickify.herokuapp.com* is set to wipe nicknames and associated sticky notes if Sticky Pusher has not contacted the server in **24 hours**.
+
+- Relevant code repositories on Github:  [Stickify Pusher](https://github.com/ansonl/stickify-pusher), [Stickify Server](https://github.com/ansonl/stickify-server), [Stickify web app](https://github.com/ansonl/stickify-web-app).
+	- Pull requests and improvements welcome.
