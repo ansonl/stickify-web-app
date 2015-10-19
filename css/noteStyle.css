@@ -122,6 +122,12 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color:rgb(0, 0, 0);
+  background-color:rgba(0, 0, 0, 0.5);
+  background: radial-gradient( 
+                rgba(0,0,0,0.5) 0%, 
+                rgba(0,0,0,0) 70%
+    );
   
 }
 

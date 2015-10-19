@@ -8,6 +8,15 @@ var countdownTimeout;
 //"https://stickify.herokuapp.com/getUser"
 var server = "https://stickify.herokuapp.com/getUser";
 
+
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+
 function showContentProgressBar() {
     $('#contentProgressBar').removeClass('progress-bar-danger progress-bar-warning');
 	$('#contentLoadingDiv').fadeTo(500, 1);
@@ -126,6 +135,13 @@ function updateNotes() {
 				$('#smallIconDiv').fadeIn(1000);
 			});
 			userLoggedIn = true;
+			
+			//Save nickname and pin
+			if (supports_html5_storage()) {
+			    localStorage['nickname'] = $('#nickname').val();
+			    localStorage['pin'] = $('#pin').val();
+			    console.log('stored nickname and pin')
+			}
 		} else {
 			hideContentProgressBar();
 			$('#errorDiv').slideUp(200);
@@ -190,7 +206,18 @@ $(document).ready(function() {
 
 	$('#userInfoForm').submit(something);
 	
+	//load saved nickname and pin
+	if (supports_html5_storage()) {
+	    if (localStorage['nickname'] !== undefined) {
+	        $('#nickname').val(localStorage['nickname']);
+	        if (localStorage['pin'] !== undefined) {
+	            $('#pin').val(localStorage['pin']);
+	        }
+	    }
+	}
+	
 	loadRemoteBackgroundImage();
+	
 });
 
 function loadRemoteBackgroundImage() {
@@ -211,7 +238,7 @@ function loadRemoteBackgroundImage() {
         var dataURL="data:image/jpeg;base64,"+b64;
         
 	    $('#imageBufferDiv').css("background-image", "url('" + dataURL + "')");
-	    console.log('set');
+	    //console.log('set');
         $('#imageBufferDiv').fadeTo(1000, 1);
     };
     xmlHTTP.send();
