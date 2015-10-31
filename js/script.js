@@ -218,6 +218,14 @@ $(document).ready(function() {
 	
 	loadRemoteBackgroundImage();
 	
+	//clear login data when clicking small icon
+	$('#logoutDiv').click(function() {
+	    if (supports_html5_storage()) {
+	        localStorage['nickname'] = '';
+	        localStorage['pin'] = '';
+	    }
+	    location.reload();
+	});
 });
 
 function loadRemoteBackgroundImage() {
