@@ -17,3 +17,8 @@ View your Microsoft Windows [Sticky Notes](http://windows.microsoft.com/en-us/wi
 Notes
 -------------
 Pull requests and improvements welcome.
+
+License
+-------------
+OLEFile's license can be found [here](https://bitbucket.org/decalage/olefileio_pl/wiki/License).
+All other parts of Stickify are made available under MIT License. 
