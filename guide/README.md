@@ -9,7 +9,7 @@ View your Microsoft Windows [Sticky Notes](http://windows.microsoft.com/en-us/wi
  - Download the pre-built Stickify binary [here](https://raw.githubusercontent.com/ansonl/stickify-pusher/master/dist/stickify.exe). 
  - Move `stickify.exe` to `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`. Stickify will now open on login. 
     - You can find your user startup folder by copy pasting `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\` into Windows Explorer like below. 
-    ![Windows 10 Explorer User Startup Folder Navigation](https://raw.githubusercontent.com/ansonl/stickify-web-app/master/guide/screenshots/win10-explorer-startup.png)
+    ![Windows 10 Explorer User Startup Folder Navigation](https://raw.githubusercontent.com/ansonl/stickify-web-app/gh-pages/guide/screenshots/win10-explorer-startup.png)
  - Run `stickify.exe` by double clicking on it.
    - ![Stickify Push screenshot](https://raw.githubusercontent.com/ansonl/stickify-web-app/gh-pages/guide/screenshots/stickify-pusher-screenshot.PNG)
 	   - **Enter a nickname and PIN of choice.** You will need this information to view your stickies. 
