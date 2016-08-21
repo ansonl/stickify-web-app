@@ -16,6 +16,9 @@ View your Microsoft Windows [Sticky Notes](http://windows.microsoft.com/en-us/wi
 	   - **Click the button to set your info.** 
 	   - Go to step 2 below. 
 - If you get an error about a missing DLL, your computer is missing the Microsoft Visual C++ Redistributable for VS 2015. The patch can be downloaded [here](http://www.microsoft.com/en-us/download/details.aspx?id=48145). 
+- If you get a prompt about Stickify being an unrecognized app, click **More Info** → **Run Anyway**.
+   - ![Windows Smartscreen Prompt More Info](https://raw.githubusercontent.com/ansonl/stickify-web-app/gh-pages/guide/screenshots/smartscreen-prompt-more-info.png)
+   - ![Windows Smartscreen Prompt Run Anyway](https://raw.githubusercontent.com/ansonl/stickify-web-app/gh-pages/guide/screenshots/smartscreen-prompt-run-anyway.png)
 
 2.  Use the Stickify web app
 ===================
