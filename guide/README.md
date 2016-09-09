@@ -7,7 +7,7 @@ View your Microsoft Windows [Sticky Notes](http://windows.microsoft.com/en-us/wi
 #### A common question:
 > **Wait!** why use Sticky Notes when I can use a task organizer like Google Keep, Evernote, etc?
 
-*Hmm...* Maybe because you are in a restricted environment where you cannot/do not want to perform a full installation of a package?* ...Or bears...something like that.*
+*Hmm...* Maybe because you are in a restricted environment where you cannot/do not want to perform a full installation of a package? Or bears...something like that. 
 Luckily most distributions of Windows come with Sticky Notes and Stickify lets you view those notes anywhere.
 
  1.  Get Stickify Pusher
