@@ -28,7 +28,7 @@ Luckily most distributions of Windows come with Sticky Notes and Stickify lets y
 
 2.  Use the Stickify web app
 ===================
-- Go to Stickify (https://stickify.gq) on your device.
+- Go to Stickify (https://stickify.us) on your device.
 
 ![Stickify login screen](https://raw.githubusercontent.com/ansonl/stickify-web-app/gh-pages/guide/screenshots/stickify-login.PNG)
 
